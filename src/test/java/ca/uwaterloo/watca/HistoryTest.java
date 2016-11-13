@@ -1,6 +1,7 @@
 package ca.uwaterloo.watca;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.PrintWriter;
@@ -11,8 +12,13 @@ import static org.junit.Assert.*;
 
 public class HistoryTest {
     private History history;
-    private ScoreFunction sfn = new GKScoreFunction();
+    private static ScoreFunction sfn;
     private static final String KEY = "testing";
+
+    @BeforeClass
+    public static void beforeClass() {
+        sfn = new GKScoreFunction();
+    }
 
     @Before
     public void beforeEach() {
